@@ -1,0 +1,318 @@
+@keyframes moveClouds {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.moving-clouds {
+  /* ... other properties ... */
+  background-image: url("/assets/clouds.png");
+  background-size: cover;
+
+  opacity: 1; /* Adjust opacity as needed */
+
+  animation: moveClouds 40s linear infinite alternate;
+  position: absolute;
+  bottom: 0; /* Position it at the bottom of the page */
+  /* Center it horizontally */
+}
+
+.center-div {
+  margin-left: 20%;
+}
+
+.page-header {
+  background-image: url("/assets/antoine-barres2.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+.dark-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Adjust the opacity here */
+  z-index: 2; /* Ensure it's above the background image */
+  /* Allow interaction with elements beneath */
+}
+/* Styles for elements above the clouds */
+.some-element-above-clouds {
+  position: relative;
+  z-index: 3; /* Adjust the z-index value as needed */
+}
+/* Style for movie rating */
+.movie-rating {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  border-radius: 5px; /* Rounded corners */
+  margin-top: 5px; /* Add margin for spacing */
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 45%;
+  margin-top: 15px; /* This margin-top will work correctly now */
+  margin-left: auto;
+  margin-right: auto; /* To horizontally center the container */
+  margin-bottom: 15px;
+}
+
+.text-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.send-button {
+  padding: 10px 20px;
+  background-color: #007030; /* Dark green color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Add hover effect */
+}
+
+.send-button:hover {
+  background-color: #005020; /* Dark green color on hover */
+}
+/* home.component.css */
+.limitIndicator {
+  color: red; /* Set your desired text color */
+  font-size: 24px; /* Set your desired font size */
+  margin-left: 30px;
+  font-weight: bold;
+}
+
+.loading {
+  display: flex;
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+}
+
+/* .bold-placeholder::placeholder {
+  font-weight: bold;
+  font-size: 10px;
+} */
+
+.error-message {
+  color: red;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center; /* Center-align the text horizontally */
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center vertically and horizontally */
+}
+.bold-placeholder::placeholder {
+  font-weight: bold;
+  font-size: 13px;
+}
+/* For screens with a maximum width of 768px (mobile devices) */
+@media (max-width: 768px) {
+  /* Input Container */
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+  }
+
+  .input-container > input {
+    width: 200%;
+  }
+
+  .input-container > button {
+    width: 60%; /* 10% width for the button element */
+    margin-top: 10px; /* Add some top margin for spacing */
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+  }
+
+  .input-container > .limitIndicator {
+    margin-top: 10px;
+    margin-right: 25px;
+    font-size: 16px;
+  }
+  /* Loading Indicator */
+  .loading {
+    margin-top: 70px;
+    width: 75px;
+    height: 75px;
+  }
+
+  .movie-rating {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  /* Additional Styles */
+  .bold-placeholder::placeholder {
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  /* Adjust margins and padding for better spacing */
+  .container {
+    margin-top: 10px;
+  }
+
+  .card {
+    margin-bottom: 15px;
+  }
+  .card:hover {
+    cursor: pointer;
+  }
+  /* Moving Clouds */
+  .moving-clouds {
+    position: relative; /* Make it relative to its parent */
+  }
+
+  .center-div {
+    text-align: center; /* Center align the content */
+  }
+
+  /* Adjust the fog image */
+  .moving-clouds img {
+    max-width: 50%;
+  }
+
+  .dark-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Adjust the opacity here */
+    z-index: 1; /* Ensure it's above the background image */
+    overflow: auto; /* Enable scrolling if content overflows */
+  }
+  .error-message {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center; /* Center-align the text horizontally */
+    position: fixed;
+
+    transform: translate(-50%, -50%); /* Center vertically and horizontally */
+  }
+}
+/* Apply this style to the container of your cards */
+.rating {
+  font-size: 24px;
+}
+
+.star {
+  cursor: pointer;
+}
+
+.star.filled {
+  color: gold;
+}
+/* Style for left column with the image */
+/* Style for the container */
+.container2 {
+  max-width: 600px; /* Set a maximum width for the container */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+/* Style for the left column with the image */
+.col-md-6:first-child {
+  padding: 0; /* Remove padding for the left column */
+  padding: 20px;
+}
+
+.col-md-6:first-child img {
+  max-width: 250px; /* Limit the image width */
+  max-height: 350px; /* Limit the image height */
+  height: auto;
+  display: block; /* Center the image horizontally */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+/* Style for the right column with text and button */
+.col-md-6:last-child {
+  padding: 20px; /* Add padding for the right column */
+  color: wheat;
+  font-weight: 500;
+}
+
+/* Style for text and button (white text) */
+.card-title,
+.card-text,
+.back-button {
+  color: white; /* Set text color to white */
+}
+
+/* Style for the "Back to Movies" button */
+.back-button {
+  margin-top: 10px; /* Add space above the button */
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #171817;
+  display: flex;
+}
+
+.back-button:hover {
+  background-color: darkgreen; /* Change color on hover */
+}
+/* Styles for mobile responsiveness */
+@media (max-width: 768px) {
+  .container2 {
+    padding: 15px; /* Add padding for spacing */
+  }
+
+  .col-md-6 {
+    margin-bottom: 15px; /* Add margin between columns */
+  }
+
+  .card-img-top {
+    max-width: 100%; /* Make the image responsive to screen width */
+    height: auto; /* Automatically adjust the image height */
+  }
+
+  .col-md-6,
+  .col-md-6 > h5,
+  .col-md-6 > p {
+    color: white; /* Set text color to white */
+  }
+
+  /* Additional styles for the back button (adjust as needed) */
+  .back-button {
+    display: block;
+    margin: 10px auto; /* Center-align the button */
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+}

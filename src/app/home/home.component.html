@@ -1,0 +1,95 @@
+<div class="page-header section-dark">
+  <div class="dark-overlay">
+    <div class="input-container" [@fadeIn]>
+      <input
+        type="text"
+        class="text-input form-control bold-placeholder"
+        [(ngModel)]="prompt"
+        placeholder="Enter your movie feeling or description here (max 100 characters)"
+        maxlength="100"
+        (input)="onInputChange($event)"
+      />
+      <button
+        [disabled]="!prompt || prompt.length === 0"
+        class="send-button btn btn-success"
+        (click)="onListMovies()"
+      >
+        Search
+      </button>
+      <div class="limitIndicator">{{ prompt.length }}/100</div>
+    </div>
+
+    <div *ngIf="loadingImage">
+      <img class="loading" src="/assets/loading.gif" alt="" />
+    </div>
+
+    <div *ngIf="displayError">
+      <p class="error-message">{{ errorMessage }}</p>
+    </div>
+    <div *ngIf="!movieSelcted">
+      <div class="container mt-2">
+        <div class="row">
+          <div
+            class="col-6 col-md-2 mb-4"
+            *ngFor="let movie of movieList"
+            (click)="onMovieClicked(movie)"
+          >
+            <span class="movie-rating">Rating: {{ movie.rating }}</span>
+            <div class="card" [@fadeIn]>
+              <img
+                src="{{ movie.posterUrl }}"
+                alt="Sorry, I can't find this Poster"
+                class="img-fluid"
+                style="cursor: pointer"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="movieSelcted">
+      <div class="" *ngIf="selectedMovie">
+        <div class="container2">
+          <div class="row">
+            <div class="col-md-6">
+              <img
+                src="{{ selectedMovie.posterUrl }}"
+                alt="Sorry, I can't find this Poster"
+                class="card-img-top"
+                style="
+                  border-radius: 10px;
+                  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+                "
+              />
+            </div>
+            <div class="col-md-6">
+              <h5>Title: {{ selectedMovie.title }}</h5>
+              <p>
+                <span style="font-weight: bold">Rating: </span>
+                {{ selectedMovie.rating }}
+              </p>
+              <p>
+                <span style="font-weight: bold">Release Date: </span>
+                {{ selectedMovie.release_date }}
+              </p>
+              <p>
+                <span style="font-weight: bold">Overview: </span>
+                {{ selectedMovie.overview }}
+              </p>
+            </div>
+          </div>
+          <button class="back-button" (click)="goBackToList()">
+            Back to Movies
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="moving-clouds">
+    <div class="center-div">
+      <img src="/assets/fog-low.png" alt="" style="opacity: 0.5" />
+      <img src="/assets/fog-low.png" alt="" />
+    </div>
+  </div>
+</div>
